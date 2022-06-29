@@ -1,5 +1,10 @@
 # EGT-Sim
 
+Evolutionary Game Theory - Simulator is a complex project that aims to replicate numerous scenarios within the
+Evolutionary Game Theory scope. It aims to be a strong engine that interprets and simulates several scenarios for 
+different inputs, namely for various population sizes, configurations, organizations, with players following different 
+learning engines, strategies, rationalities, and much more.
+
 ## Project Descriptions
   (under construction)
 
