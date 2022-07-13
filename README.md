@@ -23,7 +23,7 @@ source-control branching model and the commiting terminology.
 
   Below you can find a representative schematic of the Trunk Based complete workflow:
   
-  ![plot](./Assets/gitworkflow.png)
+  ![plot](assets/gitworkflow.png)
 
 - #### Branching Nomenclature:
   Following the previously mentioned workflow, in multi-colaborators project, each feature/hot fix branch shall follow 
