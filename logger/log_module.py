@@ -5,18 +5,36 @@ Filename: log_module.py
 Description: defines the log management module
 """
 
+
+import os
 import logging as log
+import logging.config
 
 
-class EGTLogger(log.Logger):
-    def __init__(self, filename: str = '..\\logs\\log.log'):
-        super().__init__(filename)
+log_path = "..\\logs\\"
+logger = logging.getLogger()
 
-        """Initializes the logger object"""
-        self.logger = log.getLogger(filename)
-        self.filename = filename
 
-    def basicConfig(self, level=log.DEBUG, filemode='a', log_format="%(levelname)s [%(asctime)s] %(message)s"):
-        log.basicConfig(filename=self.filename, level=level, format=log_format, filemode=filemode)
+def config_logger(filename: str = "log.log", filemode: chr = 'a', level: int = log.DEBUG, clean_logs: bool = True,
+                  log_format: str = "%(levelname)s [%(asctime)s] %(message)s", disable_existing_loggers: bool = True):
+    """Configures the project logger for given inputs"""
+    if clean_logs:
+        clean_all_logs()
+    log.basicConfig(filename=log_path+filename, filemode=filemode, level=level, format=log_format)
+    config_existing_logger(disable_existing_loggers)
+
+
+def config_existing_logger(disable):
+    """Disable all existing loggers"""
+    logging.config.dictConfig({
+        'version': 1,
+        'disable_existing_loggers': disable,
+    })
+
+
+def clean_all_logs():
+    """Clean all existing logs"""
+    for f in os.listdir(path=log_path):
+        os.remove(os.path.join(log_path, f))
 
 
