@@ -11,13 +11,13 @@ import logging as log
 import logging.config
 
 
-log_path = "..\\logs\\"
+log_path = "..\\engine\\logs\\"
 logger = logging.getLogger()
 
 
 def config_logger(filename: str = "log.log", filemode: chr = 'a', level: int = log.DEBUG, clean_logs: bool = True,
                   log_format: str = "%(levelname)s [%(asctime)s] %(message)s", disable_existing_loggers: bool = True):
-    """Configures the project logger for given inputs"""
+    """Configures the project modules for given inputs"""
     if clean_logs:
         clean_all_logs()
     log.basicConfig(filename=log_path+filename, filemode=filemode, level=level, format=log_format)
