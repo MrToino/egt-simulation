@@ -1,7 +1,7 @@
 """
 Project: EGT-Sim
 
-Filename: log_module.py
+Filename: engine/modules/log_module.py
 Description: defines the log management module
 """
 
