@@ -5,6 +5,11 @@ Filename: main.py
 Description: running and testing
 """
 
+input_data = {
+    "Game": "SG",
+    "GameType": "2P",
+}
+
 
 def run():
     """Project runner for given input"""
