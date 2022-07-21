@@ -5,9 +5,19 @@ Filename: main.py
 Description: running and testing
 """
 
-input_data = {
-    "Game": "SG",
-    "GameType": "2P",
+
+framework_data = {
+    "Population": {
+        "Size": 100,
+        "Intensities": [1.0]
+    },
+    "LearningRules": [{
+            "LR Label": "SL",
+            "Game Type": "2P",
+            "Game": "SG",
+            "Game Specs": [3, 2, 4, 1],
+        }
+    ]
 }
 
 
