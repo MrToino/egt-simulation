@@ -8,16 +8,16 @@ Description: running and testing
 
 framework_data = {
     "Population": {
-        "Size": 100,
-        "Intensities": [1.0]
+        "Size": (100,),
+        "Intensities": (1.0, )
     },
-    "LearningRules": [{
+    "LearningRules": ({
             "LR Label": "SL",
             "Game Type": "2P",
             "Game": "SG",
-            "Game Specs": [3, 2, 4, 1],
-        }
-    ]
+            "Game Specs": (3, 2, 4, 1),
+        },
+    )
 }
 
 
