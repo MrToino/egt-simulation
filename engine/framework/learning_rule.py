@@ -1,4 +1,3 @@
-
 class LearningRule:
     def __init__(self):
         pass
