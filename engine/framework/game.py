@@ -1,11 +1,34 @@
 class Game:
-    def __init__(self, game_specs):
-        self.game_specs = game_specs
+    def __init__(self, game_configurations):
+        self.size = game_configurations["size"]
+        self.configs = game_configurations["config"]
+
+    def fitnessC(self):
+        return
+
+    def fitnessD(self):
+        return
+
+    def Gradient(self):
+        return self.fitnessC() - self.fitnessD()
 
 
 class Game2P(Game):
-    def __init__(self, game_specs):
-        super().__init__(game_specs)
+    def __init__(self, game_configurations):
+        super().__init__(game_configurations)
+        self.R = self.configs["R"]
+        self.S = self.configs["S"]
+        self.T = self.configs["T"]
+        self.P = self.configs["P"]
+
+    def fitnessC(self):
+        pass
+
+    def fitnessD(self):
+        pass
+
+    def fitnessCD(self):
+        pass
 
 
 class HarmonyGame(Game2P):
