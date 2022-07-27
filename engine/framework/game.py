@@ -1,3 +1,18 @@
+"""
+configurations = {
+    "size": int,
+    "intensity": float,
+    "configs": {
+        # for 2P games
+        "R" : float,
+        "S" : float,
+        "T" : float,
+        "P" : float
+    }
+}
+"""
+
+
 class Game:
     def __init__(self, game_configurations):
         self.size = game_configurations["size"]
