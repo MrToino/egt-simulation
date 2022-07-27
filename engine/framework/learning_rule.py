@@ -1,3 +1,6 @@
+from game import Game
+
+
 class LearningRule:
     def __init__(self):
         pass
@@ -9,11 +12,13 @@ class Conformity(LearningRule):
 
 
 class SocialLearning(LearningRule):
-    def __init__(self):
+    def __init__(self, configs):
         super().__init__()
+        self.game = Game(configs)
 
 
 class CounterfactualThinking(LearningRule):
-    def __init__(self):
+    def __init__(self, configs):
         super().__init__()
+        self.game = Game(configs)
 
