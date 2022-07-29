@@ -15,11 +15,11 @@ configurations = {
 
 class Game:
     def __init__(self, game_configurations):
-        self.size = game_configurations["size"]
-        self.configs = game_configurations["config"]
+        self.Z = game_configurations["size"]
+        self.configs = game_configurations["configs"]
 
     def fitnessC(self):
-        return
+        pass
 
     def fitnessD(self):
         return
