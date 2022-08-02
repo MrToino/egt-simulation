@@ -6,6 +6,7 @@ class LearningRule:
         self.size = configs["size"]
         self.intensity = configs["intensity"]
 
+
 class Conformity(LearningRule):
     def __init__(self, configs):
         super().__init__(configs)
