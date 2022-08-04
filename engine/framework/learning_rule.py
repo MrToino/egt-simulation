@@ -1,4 +1,5 @@
 from game import Game
+from numpy import exp
 
 
 class LearningRule:
@@ -18,7 +19,7 @@ class Conformity(LearningRule):
         return (self.size - k) / self.size
 
     def Fermi(self, k):
-        return - self.intensity * (self.fractionD(k) - self.fractionC(k))
+        return 1 / (1 - exp(- self.intensity * (self.fractionD(k) - self.fractionC(k))))
 
 
 class SocialLearning(LearningRule):
