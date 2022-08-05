@@ -27,9 +27,23 @@ class SocialLearning(LearningRule):
         super().__init__(configs)
         self.game = Game(configs)
 
+    def fitnessC(self, k: int): pass
+
+    def fitnessD(self, k: int): pass
+
+    def Fermi(self, k):
+        return (1 - exp(- self.intensity * (self.fitnessD(k) - self.fitnessC(k))))**(-1)
+
 
 class CounterfactualThinking(LearningRule):
     def __init__(self, configs):
         super().__init__(configs)
         self.game = Game(configs)
+
+    def fitnessC(self, k: int): pass
+
+    def fitnessD(self, k: int): pass
+
+    def Fermi(self, k):
+        return (1 - exp(- self.intensity * (self.fitnessD(k) - self.fitnessC(k))))**(-1)
 
