@@ -19,7 +19,7 @@ class Conformity(LearningRule):
         return (self.size - k) / self.size
 
     def Fermi(self, k):
-        return 1 / (1 - exp(- self.intensity * (self.fractionD(k) - self.fractionC(k))))
+        return (1 - exp(- self.intensity * (self.fractionD(k) - self.fractionC(k))))**(-1)
 
 
 class SocialLearning(LearningRule):
