@@ -7,19 +7,23 @@ class LearningRule:
         self.size = configs["size"]
         self.intensity = configs["intensity"]
 
+    def fitnessC(self, k: int): pass
+
+    def fitnessD(self, k: int): pass
+
 
 class Conformity(LearningRule):
     def __init__(self, configs):
         super().__init__(configs)
 
-    def fractionC(self, k):
+    def fitnessC(self, k):
         return k / self.size
 
-    def fractionD(self, k):
+    def fitnessD(self, k):
         return (self.size - k) / self.size
 
     def Fermi(self, k):
-        return (1 - exp(- self.intensity * (self.fractionD(k) - self.fractionC(k))))**(-1)
+        return (1 - exp(- self.intensity * (self.fitnessD(k) - self.fitnessC(k))))**(-1)
 
 
 class SocialLearning(LearningRule):
