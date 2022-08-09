@@ -49,5 +49,5 @@ class CounterfactualThinking(LearningRule):
     def fitnessD(self, k: int): pass
 
     def Fermi(self, k):
-        return (1 - exp(- self.intensity * (self.fitnessD(k) - self.fitnessC(k))))**(-1)
+        return (1 - exp(- self.intensity * (self.fitnessD(k-1) - self.fitnessC(k))))**(-1)
 

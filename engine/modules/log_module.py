@@ -11,7 +11,7 @@ import logging as log
 import logging.config
 
 
-log_path = "..\\engine\\logs\\"
+log_path = os.path.join("..", "engine", "logs")
 logger = logging.getLogger()
 
 
