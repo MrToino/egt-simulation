@@ -4,7 +4,7 @@ Evolutionary Game Theory
 Project: EGT-Sim
 Package: framework
 Filename: game2p.py
-Description: defines the 2-person game framework
+Description: defines the N-person game framework
 """
 
 
@@ -32,7 +32,7 @@ class GameNP(Game):
             [binom(i - 1, j) * binom(self.Z - i, self.N - j - 1) * self.payoffC(j + 1)
              for j in range(0, self.N, 1)])
 
-    def fitnessD(self, i: int):
+    def fitnessD(self, i: int) -> float:
         """Returns the fitness for defectors"""
         return 1 / binom(self.Z - 1, self.N - 1) * sum(
             [binom(i, j) * binom(self.Z - i - 1, self.N - j - 1) * self.payoffD(j)
