@@ -37,3 +37,23 @@ class GameNP(Game):
         return 1 / binom(self.Z - 1, self.N - 1) * sum(
             [binom(i, j) * binom(self.Z - i - 1, self.N - j - 1) * self.payoffD(j)
              for j in range(0, self.N, 1)])
+
+
+class NSnowdriftGame(GameNP):
+    def __init__(self, game_specs):
+        super().__init__(game_specs)
+
+
+class NStagHunt(GameNP):
+    def __init__(self, game_specs):
+        super().__init__(game_specs)
+
+
+class PublicGoodGames(GameNP):
+    def __init__(self, game_specs):
+        super().__init__(game_specs)
+
+
+class CollectiveRiskDilemma(GameNP):
+    def __init__(self, game_specs):
+        super().__init__(game_specs)
