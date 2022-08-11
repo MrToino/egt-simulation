@@ -42,7 +42,7 @@ class GameNP(Game):
 
 
 class NSnowdriftGame(GameNP):
-    """Define the attributes and methods specific for a N-person snowdrift game"""
+    """Define the attributes and methods specific for a N-person Snowdrift Game"""
 
     def __init__(self, game_specs):
         """Initialize the general game class"""
@@ -59,18 +59,24 @@ class NSnowdriftGame(GameNP):
 
 
 class NStagHunt(GameNP):
+    """Define the attributes and methods specific for a N-person Stag-Hunt Game"""
+
     def __init__(self, game_specs):
         """Initialize the general game class"""
         super().__init__(game_specs)
 
 
 class PublicGoodGames(GameNP):
+    """Define the attributes and methods specific for a Public Good Game"""
+
     def __init__(self, game_specs):
         """Initialize the general game class"""
         super().__init__(game_specs)
 
 
 class CollectiveRiskDilemma(GameNP):
+    """Define the attributes and methods specific for a Collective Risk Dilemma"""
+
     def __init__(self, game_specs):
         """Initialize the general game class"""
         super().__init__(game_specs)
