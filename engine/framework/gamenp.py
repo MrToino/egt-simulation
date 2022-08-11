@@ -13,6 +13,8 @@ from scipy.special import comb as binom
 
 
 class GameNP(Game):
+    """Define the attributes and methods specific for a N-person game"""
+
     def __init__(self, game_specs):
         """Initialize the general game class"""
         super().__init__(game_specs)
@@ -40,20 +42,36 @@ class GameNP(Game):
 
 
 class NSnowdriftGame(GameNP):
+    """Define the attributes and methods specific for a N-person snowdrift game"""
+
     def __init__(self, game_specs):
+        """Initialize the general game class"""
         super().__init__(game_specs)
+        self.M, self.b, self.c = self.configs["M", "b", "c"]
+
+    def payoffC(self, i) -> float:
+        """Computes the payoff for cooperators"""
+        return (-self.c / self.M if i < self.M else self.b - self.c / i) if i > 0 else 0
+
+    def payoffD(self, i) -> float:
+        """Computes the payoff for defectors"""
+        return 0 if i < self.M else self.b
 
 
 class NStagHunt(GameNP):
     def __init__(self, game_specs):
+        """Initialize the general game class"""
         super().__init__(game_specs)
 
 
 class PublicGoodGames(GameNP):
     def __init__(self, game_specs):
+        """Initialize the general game class"""
         super().__init__(game_specs)
 
 
 class CollectiveRiskDilemma(GameNP):
     def __init__(self, game_specs):
+        """Initialize the general game class"""
         super().__init__(game_specs)
+
