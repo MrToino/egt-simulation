@@ -1,15 +1,10 @@
 """
-configurations = {
-    "size": int,
-    "intensity": float,
-    "configs": {
-        # for 2P games
-        "R" : float,
-        "S" : float,
-        "T" : float,
-        "P" : float
-    }
-}
+Evolutionary Game Theory
+
+Project: EGT-Sim
+Package: framework
+Filename: game.py
+Description: defines the general game framework
 """
 
 
@@ -21,7 +16,7 @@ class Game:
 
     def __init__(self, game_configurations):
         """Initialize the general game parameters"""
-        self.Z, self.B, self.mu = game_configurations["Z", "B", "mu"]
+        self.Z, self.B, self.U = game_configurations["Z", "B", "U"]
         self.configs = game_configurations["configs"]
 
     def fitnessC(self, i: int) -> float:
@@ -32,23 +27,23 @@ class Game:
         """Compute the fitness for cooperators"""
         pass
 
-    def fermiCD(self, i):
+    def fermiCD(self, i) -> float:
         """Compute the negative Fermi probability"""
         return (1 + exp(-self.B * (self.fitnessD(i) - self.fitnessC(i)))) ** (-1)
 
-    def fermiDC(self, i):
+    def fermiDC(self, i) -> float:
         """Compute the positive Fermi probability"""
         return (1 + exp(-self.B * (self.fitnessC(i) - self.fitnessD(i)))) ** (-1)
 
-    def TransitionCD(self, i):
+    def TransitionCD(self, i) -> float:
         """Compute the negative transition probability"""
         return i / self.Z * (self.Z - i) / self.Z * self.fermiCD(i)
 
-    def TransitionDC(self, i):
+    def TransitionDC(self, i) -> float:
         """Compute the positive transition probability"""
         return i / self.Z * (self.Z - i) / self.Z * self.fermiDC(i)
 
-    def Gradient(self, i):
+    def Gradient(self, i) -> float:
         """Compute the gradient of selection"""
         return self.TransitionDC(i) - self.TransitionDC(i)
 
