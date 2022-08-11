@@ -11,6 +11,8 @@ from engine.framework.game import Game
 
 
 class Game2P(Game):
+    """Define the attributes and methods specific for a 2-person game"""
+
     def __init__(self, game_configurations):
         """Initialize the general game class"""
         super().__init__(game_configurations)
