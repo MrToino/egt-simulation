@@ -64,6 +64,15 @@ class NStagHunt(GameNP):
     def __init__(self, game_specs):
         """Initialize the general game class"""
         super().__init__(game_specs)
+        self.M, self.b, self.c = self.configs["M", "b", "c"]
+
+    def payoffC(self, i) -> float:
+        """Computes the payoff for cooperators"""
+        return (-self.c / self.M if i < self.M else self.b - self.c / i) if i > 0 else 0
+
+    def payoffD(self, i) -> float:
+        """Computes the payoff for defectors"""
+        return 0 if i < self.M else self.b
 
 
 class PublicGoodGames(GameNP):
@@ -72,6 +81,15 @@ class PublicGoodGames(GameNP):
     def __init__(self, game_specs):
         """Initialize the general game class"""
         super().__init__(game_specs)
+        self.b, self.c = self.configs["b", "c"]
+
+    def payoffC(self, i) -> float:
+        """Computes the payoff for cooperators"""
+        return (-self.c / self.M if i < self.M else self.b - self.c / i) if i > 0 else 0
+
+    def payoffD(self, i) -> float:
+        """Computes the payoff for defectors"""
+        return 0 if i < self.M else self.b
 
 
 class CollectiveRiskDilemma(GameNP):
@@ -80,4 +98,13 @@ class CollectiveRiskDilemma(GameNP):
     def __init__(self, game_specs):
         """Initialize the general game class"""
         super().__init__(game_specs)
+        self.M, self.b, self.c, self.r = self.configs["M", "b", "c", "r"]
+
+    def payoffC(self, i) -> float:
+        """Computes the payoff for cooperators"""
+        return (-self.c / self.M if i < self.M else self.b - self.c / i) if i > 0 else 0
+
+    def payoffD(self, i) -> float:
+        """Computes the payoff for defectors"""
+        return 0 if i < self.M else self.b
 
