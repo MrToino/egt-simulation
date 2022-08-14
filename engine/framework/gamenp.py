@@ -102,9 +102,9 @@ class CollectiveRiskDilemma(GameNP):
 
     def payoffC(self, i) -> float:
         """Computes the payoff for cooperators"""
-        return (-self.c / self.M if i < self.M else self.b - self.c / i) if i > 0 else 0
+        return (self.b * (1 - self.r - self.c) if i < self.M else self.b * (1 - self.c)) if i > 0 else 0
 
     def payoffD(self, i) -> float:
         """Computes the payoff for defectors"""
-        return 0 if i < self.M else self.b
+        return (self.b * (1 - self.r) if i < self.M else self.b) if i > 0 else 0
 
