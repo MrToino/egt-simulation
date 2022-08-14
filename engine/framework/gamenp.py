@@ -85,11 +85,11 @@ class PublicGoodGames(GameNP):
 
     def payoffC(self, i) -> float:
         """Computes the payoff for cooperators"""
-        return (-self.c / self.M if i < self.M else self.b - self.c / i) if i > 0 else 0
+        return 0.
 
     def payoffD(self, i) -> float:
         """Computes the payoff for defectors"""
-        return 0 if i < self.M else self.b
+        return 0.
 
 
 class CollectiveRiskDilemma(GameNP):
