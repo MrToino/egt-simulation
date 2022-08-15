@@ -27,23 +27,23 @@ class Game:
         """Compute the fitness for cooperators"""
         pass
 
-    def fermiCD(self, i) -> float:
+    def fermiCD(self, i: int) -> float:
         """Compute the negative Fermi probability"""
         return (1 + exp(-self.B * (self.fitnessD(i) - self.fitnessC(i)))) ** (-1)
 
-    def fermiDC(self, i) -> float:
+    def fermiDC(self, i: int) -> float:
         """Compute the positive Fermi probability"""
         return (1 + exp(-self.B * (self.fitnessC(i) - self.fitnessD(i)))) ** (-1)
 
-    def TransitionCD(self, i) -> float:
+    def TransitionCD(self, i: int) -> float:
         """Compute the negative transition probability"""
         return i / self.Z * (self.Z - i) / self.Z * self.fermiCD(i)
 
-    def TransitionDC(self, i) -> float:
+    def TransitionDC(self, i: int) -> float:
         """Compute the positive transition probability"""
         return i / self.Z * (self.Z - i) / self.Z * self.fermiDC(i)
 
-    def Gradient(self, i) -> float:
+    def Gradient(self, i: int) -> float:
         """Compute the gradient of selection"""
         return self.TransitionDC(i) - self.TransitionDC(i)
 

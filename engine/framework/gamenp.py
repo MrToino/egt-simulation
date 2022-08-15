@@ -49,11 +49,11 @@ class NSnowdriftGame(GameNP):
         super().__init__(game_specs)
         self.M, self.b, self.c = self.configs["M", "b", "c"]
 
-    def payoffC(self, i) -> float:
+    def payoffC(self, i: int) -> float:
         """Compute the payoff for cooperators"""
         return (-self.c / self.M if i < self.M else self.b - self.c / i) if i > 0 else 0
 
-    def payoffD(self, i) -> float:
+    def payoffD(self, i: int) -> float:
         """Compute the payoff for defectors"""
         return 0 if i < self.M else self.b
 
@@ -66,11 +66,11 @@ class NStagHunt(GameNP):
         super().__init__(game_specs)
         self.M, self.F, self.c = self.configs["M", "F", "c"]
 
-    def payoffC(self, i) -> float:
+    def payoffC(self, i: int) -> float:
         """Compute the payoff for cooperators"""
         return (-self.c if 1 < i < self.M else i * self.c * self.F / self.N - self.c) if i > 0 else 0
 
-    def payoffD(self, i) -> float:
+    def payoffD(self, i: int) -> float:
         """Compute the payoff for defectors"""
         return 0 if i < self.M else i * self.c * self.F / self.N
 
@@ -83,7 +83,7 @@ class PublicGoodGames(GameNP):
         super().__init__(game_specs)
         self.b, self.c = self.configs["b", "c"]
 
-    def payoffC(self, i) -> float:
+    def payoffC(self, i: int) -> float:
         """Computes the payoff for cooperators"""
         return 0.
 
@@ -100,11 +100,11 @@ class CollectiveRiskDilemma(GameNP):
         super().__init__(game_specs)
         self.M, self.b, self.c, self.r = self.configs["M", "b", "c", "r"]
 
-    def payoffC(self, i) -> float:
+    def payoffC(self, i: int) -> float:
         """Computes the payoff for cooperators"""
         return (self.b * (1 - self.r - self.c) if i < self.M else self.b * (1 - self.c)) if i > 0 else 0
 
-    def payoffD(self, i) -> float:
+    def payoffD(self, i: int) -> float:
         """Computes the payoff for defectors"""
         return (self.b * (1 - self.r) if i < self.M else self.b) if i > 0 else 0
 
