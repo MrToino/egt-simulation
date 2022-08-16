@@ -45,5 +45,5 @@ class Game:
 
     def Gradient(self, i: int) -> float:
         """Compute the gradient of selection"""
-        return self.TransitionDC(i) - self.TransitionDC(i)
+        return self.TransitionDC(i) - self.TransitionCD(i)
 
