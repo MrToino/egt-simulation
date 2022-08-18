@@ -31,9 +31,11 @@ class SocialLearning(LearningRule):
         super().__init__(configs)
         self.game = Game(configs)
 
-    def fitnessC(self, k: int): pass
+    def fitnessC(self, i: int) -> float:
+        return self.game.fitnessC(i)
 
-    def fitnessD(self, k: int): pass
+    def fitnessD(self, i: int) -> float:
+        return self.game.fitnessD(i)
 
     def Fermi(self, k):
         return (1 - exp(- self.intensity * (self.fitnessD(k) - self.fitnessC(k))))**(-1)
